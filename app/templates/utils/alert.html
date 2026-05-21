@@ -1,0 +1,15 @@
+{% set simbols = {'success': '✔️', 'info': 'ℹ️', 'warning': '⚠️', 'danger': '❌'} %}
+{% with messages = get_flashed_messages(with_categories=true) %}
+    {% if messages %}
+        <div id="alertas" class="alerta-container">
+        {% for category, message in messages %}
+            <div class="alerta alerta-{{category}}">
+                <span class="alert-icon">{{ simbols[category] }}</span>
+                <span class="alert-message">{{ message }}</span>
+            </div>
+        {% endfor %}
+
+        <script defer src="{{ url_for('static', filename='js/alert.js') }}"></script>
+        </div>
+    {% endif %}
+{% endwith %}

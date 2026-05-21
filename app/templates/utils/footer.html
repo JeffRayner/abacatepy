@@ -1,0 +1,14 @@
+<footer>
+    <div class="footer-left">
+        <span class="footer-text">© 1994-{{CURRENT_YEAR}} | {{SITE_NAME}}, Corp</span>
+    </div>
+    <ul class="footer-right">
+        {% for item in SOCIAL_LINKS %}
+        <li>
+            <a href="{{item[1]}}" aria-label="{{item[0]}}">
+                <i class="bi bi-{{ item[0].lower()}}"></i>
+            </a>
+        </li>
+        {% endfor %}
+    </ul>
+</footer>

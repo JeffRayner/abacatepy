@@ -1,0 +1,49 @@
+{% extends "utils/base.html" %}
+{% block main %}
+<main class="success-page">
+
+    <section class="success-card">
+
+        <div class="success-icon">
+            ✓
+        </div>
+
+        <h1>Pagamento realizado com sucesso!</h1>
+
+        <p class="success-message">
+            Obrigado pela sua compra. Seu pagamento foi confirmado e seu pedido já está sendo processado.
+        </p>
+
+        <div class="order-info">
+            <p><strong>Código do pedido:</strong>{{ produto.codigo_pedido }}</p>
+            <p><strong>Data do pagamento:</strong>{{ produto.data_pagamento }}</p>
+            <p><strong>Forma de pagamento:</strong>{{ produto.forma_pagamento }}</p>
+        </div>
+
+        <div class="product-box">
+
+            <img src="{{ produto.imagem }}" alt="{{ produto.nome }}" class="product-image">
+
+            <div class="product-details">
+                <h2>{{ produto.nome }}</h2>
+                <p>{{ produto.descricao }}</p>
+                <span class="product-price">R$ {{ "%.2f"|format(produto.preco) }}</span>
+            </div>
+
+        </div>
+
+        <div class="actions">
+            <a href="/" class="btn btn-primary">
+                Voltar para o início
+            </a>
+
+            <button class="btn btn-secondary" id="btnPrint">
+                Imprimir comprovante
+            </button>
+        </div>
+
+    </section>
+
+</main>
+<script src="{{ url_for('static', filename='js/pagamento_sucesso.js') }}"></script>
+{% endblock %}

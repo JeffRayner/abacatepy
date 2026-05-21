@@ -8,12 +8,4 @@ home_bp = Blueprint('home', __name__, url_prefix="/")
 
 @home_bp.get('/')
 def index():
-    return render_template('index.html')
-
-@home_bp.post('/success')
-def success():
-    return "Pagamento realizado com sucesso"
-
-@home_bp.post('/cancel')
-def cancel():
-    return "Pagamento não efetuado!!"
+    return render_template("index.html")
